@@ -16,6 +16,6 @@ const FinanceProductsSchema = new mongoose.Schema({
 })
 
 
-const FinanceProduceModel = mongoose.model("finance_products", FinanceProductsSchema)
+const FinanceProductModel = mongoose.model("finance_products", FinanceProductsSchema)
 
-modeule.exports = FinanceProduceModel
+module.exports = FinanceProductModel
