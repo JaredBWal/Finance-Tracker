@@ -17,7 +17,7 @@ app.get("/getFinanceProducts", async(req, res) => {
     res.json(products)
 })
 
-app.put("/createFinanceProduct", async(req, res) => {
+app.post("/createFinanceProduct", async(req, res) => {
     const product = req.body
     const newProduct = new FinanceProductModel(product)
     await newProduct.save()
