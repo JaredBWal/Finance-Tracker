@@ -2,13 +2,16 @@ const express = require('express')
 const mongoose = require('mongoose')
 const FinanceProductModel = require('./models/FinanceProducts')
 const cors = require('cors')
+const dotenv = require('dotenv')
+
+dotenv.config()
 
 const app = express()
 app.use(express.json())
 app.use(cors())
 
 
-mongoose.connect('mongodb+srv://jaredbwal:@cluster0.8nbdcsh.mongodb.net/financeTrackerDatabase?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://jaredbwal:'+ process.env.FINANCE_PASS +'@cluster0.8nbdcsh.mongodb.net/financeTrackerDatabase?retryWrites=true&w=majority')
 
 
 
