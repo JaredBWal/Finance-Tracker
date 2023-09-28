@@ -8,7 +8,7 @@ app.use(express.json())
 app.use(cors())
 
 
-mongoose.connect('mongodb+srv://jaredbwal:u5YMHzl6ZuohuYir@cluster0.8nbdcsh.mongodb.net/financeTrackerDatabase?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://jaredbwal:@cluster0.8nbdcsh.mongodb.net/financeTrackerDatabase?retryWrites=true&w=majority')
 
 
 
