@@ -6,10 +6,16 @@ export default function Products(){
 
     const [productList, setProductList] = useState()
 
-    const removeFromProductList = (product) => {
+    function removeProductWithId(productId) {
+        console.log(productId)
         // remove from database
+        Axios.delete("http://localhost:3002/removeFinanceProductWithId/"+productId).then ((response) => {
+            // remove from productList
+            console.log("Removed")
 
-        // remove from list
+        })
+        
+
 
     }
 
@@ -30,7 +36,7 @@ export default function Products(){
 
                 productList.map( (product) => {
                     
-                    return (<Product product={product}/>)
+                    return (<Product product={product} removeProductWithId={removeProductWithId}/>)
                 })
 
             )}

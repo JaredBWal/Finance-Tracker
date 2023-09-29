@@ -29,14 +29,20 @@ app.post("/createFinanceProduct", async(req, res) => {
 })
 
 app.patch("/editFinanceProduct", async(req, res) => {
-
-    console.log("editing")
     const updated_fields = req.body
-    query = updated_fields.id
+    id = updated_fields.id
 
-    const product = await FinanceProductModel.findOneAndUpdate(query, req.body, {new:true})
+    const product = await FinanceProductModel.findByIdAndUpdate(id, req.body, {new:true})
     res.json(product)
 })
+
+
+app.delete("/removeFinanceProductWithId/:id", async(req, res) => {
+    const productId = req.params.id
+    const result = await FinanceProductModel.findByIdAndRemove(productId, {new:true})
+    res.json(result)
+})
+
 
 app.listen(3002, () => {
     console.log("SERVER IS UP")
