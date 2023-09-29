@@ -9,9 +9,9 @@ export default function YearlyCosts(props){
 
     return (
         <div className="w-[40%] mx-auto bg-green-400 p-6 rounded-md">
-            <div className="text-xl">
+            <div className="text-3xl text-center">
 
-                <h1>Annual Cost: {props.annualCost}</h1>
+                <h1>Annual Cost: ${props.annualCost}</h1>
             </div>
         </div>
     )

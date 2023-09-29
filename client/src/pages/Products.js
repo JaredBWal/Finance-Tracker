@@ -90,8 +90,13 @@ export default function Products(){
     return (
 
         <div className=' '>
-            <div>
+
+            
+            <div className='w-[60%] mx-auto mt-5 bg-cyan-950 p-3 rounded-md'>
                 <AddProduct addToProductList={addToProductList}/>
+            </div>
+            <div className='mt-5'>     
+                    <YearlyCosts key={1} annualCost={annualCost}/>
             </div>
 
             <div className='grid grid-cols-1 justify-center	gap-2 mt-5'>
@@ -100,10 +105,7 @@ export default function Products(){
                         return (<Product  key={product._id} product={product} removeProductWithId={removeProductWithId} setProductList={setProductList} updateProductLists={updateProductLists}/>)
                     })
                 )}
-                <div>
-                    
-                    <YearlyCosts key={1} annualCost={annualCost}/>
-                </div>
+
             </div>
 
 

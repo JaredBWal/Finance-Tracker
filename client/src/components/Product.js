@@ -95,33 +95,33 @@ export default function Product(props){
 
     
         
-        <div className="w-[40%] mx-auto bg-blue-400 p-6 rounded-md">
+        <div className="w-[40%] mx-auto bg-sky-950 p-6 rounded-md text-white">
             {/* {console.log(getStringOccurrence(annual_occurrence))} */}
-            <div className="text-xl">
-                <h1>{name}: {cost}/{getStringOccurrence(annual_occurrence)}</h1>
+            <div className="text-3xl text-center">
+                <h1>{name}: ${cost}/{getStringOccurrence(annual_occurrence)}</h1>
             </div>
         
             <div className="w-full flex  justify-around mt-4">
                 <div>
-                    <button className=" bg-red-200 rounded-sm px-3 py-1" onClick={toggleShowEdit}>Edit</button>
+                    <button className=" bg-gray-200 rounded-sm px-5 py-1 text-sky-950 hover:bg-gray-300" onClick={toggleShowEdit}>Edit</button>
                 </div>
             <div>
                 <div>
-                    <button className="bg-red-200 rounded-sm px-3 py-1" onClick={ () => {props.removeProductWithId(props.product._id)}}>Remove</button>
+                    <button className="bg-red-200 rounded-sm px-5 py-1 text-sky-950 hover:bg-red-300" onClick={ () => {props.removeProductWithId(props.product._id)}}>Remove</button>
                 </div>
             </div>
         </div>
 
     {
         showEdit &&
-    <div className="mt-2 flex">
-        <span  className="flex-1">
-            <input  onChange={ (event) => {setEditName(event.target.value)} } className="w-full" placeholder={name} ></input>
+    <div className="mt-2 flex text-black">
+        <span  className="flex-1 ">
+            <input  onChange={ (event) => {setEditName(event.target.value)} } className="w-full placeholder:text-gray-500" placeholder={name} ></input>
         </span>
         <span className="flex-1 ml-1">
-            <input onChange={ (event) => {setEditCost(event.target.value)} } className="w-full " placeholder={cost} ></input> 
+            <input onChange={ (event) => {setEditCost(event.target.value)} } className="w-full placeholder:text-gray-500" placeholder={cost} ></input> 
         </span>
-        <span className="flex-1 ml-1">
+        <span className="flex-1 ml-1 text-black">
             <select  onChange={ (event) => {setEditAnnualOccurrence(event.target.value)} } className="w-full  py-[.5px]" >
                 <option value={props.product.annual_occurrence} selected disabled hidden>{getStringOccurrence(annual_occurrence)}</option>
                 <option value="365">Daily</option>
@@ -132,7 +132,7 @@ export default function Product(props){
             </select>
         </span>
         <span className="flex-1 ml-1">
-            <button onClick={editProduct} className="w-full bg-gray-400">Save Edit</button>
+            <button onClick={editProduct} className="w-full bg-gray-200 hover:bg-gray-300 text-sky-950">Save Edit</button>
         </span>
     </div>
 
