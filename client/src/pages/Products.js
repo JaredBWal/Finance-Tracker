@@ -80,7 +80,7 @@ export default function Products(){
         if (productList){
             let totalCost = 0
             productList.map( (product) => {
-                totalCost += product.cost
+                totalCost += product.cost * product.annual_occurrence
             })
 
             setAnnualCost(totalCost)
