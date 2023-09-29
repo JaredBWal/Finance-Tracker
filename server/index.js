@@ -21,6 +21,7 @@ app.get("/getFinanceProducts", async(req, res) => {
 })
 
 app.post("/createFinanceProduct", async(req, res) => {
+    console.log(req.body);
     const product = req.body
     const newProduct = new FinanceProductModel(product)
     await newProduct.save()

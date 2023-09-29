@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import Axios from 'axios'
 import Product from '../components/Product'
+import AddProduct from '../components/AddProduct'
 
 export default function Products(){
 
@@ -14,9 +15,6 @@ export default function Products(){
             console.log("Removed")
 
         })
-        
-
-
     }
 
     useEffect(()=>{
@@ -31,18 +29,18 @@ export default function Products(){
 
 
         <div className=' '>
-            <div className='grid grid-cols-1 justify-center	gap-2 mt-5'>
-            {productList && (
+            <div>
+            <AddProduct />
 
-                productList.map( (product) => {
-                    
-                    return (<Product product={product} removeProductWithId={removeProductWithId}/>)
-                })
-
-            )}
             </div>
 
-
+            <div className='grid grid-cols-1 justify-center	gap-2 mt-5'>
+            {productList && (
+                productList.map( (product) => {
+                    return (<Product key={product._id} product={product} removeProductWithId={removeProductWithId}/>)
+                })
+            )}
+            </div>
         </div>
     )
 
