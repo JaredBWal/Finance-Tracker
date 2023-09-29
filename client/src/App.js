@@ -1,4 +1,3 @@
-import './App.css';
 import Products from './pages/Products';
 
 function App() {
@@ -6,6 +5,7 @@ function App() {
     <div className="App">
       <Products />
     </div>
+    
   );
 }
 

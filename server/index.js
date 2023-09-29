@@ -28,6 +28,16 @@ app.post("/createFinanceProduct", async(req, res) => {
 
 })
 
+app.patch("/editFinanceProduct", async(req, res) => {
+
+    console.log("editing")
+    const updated_fields = req.body
+    query = updated_fields.id
+
+    const product = await FinanceProductModel.findOneAndUpdate(query, req.body, {new:true})
+    res.json(product)
+})
+
 app.listen(3002, () => {
     console.log("SERVER IS UP")
 })
