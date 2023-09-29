@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Axios from 'axios'
 
-export default function AddProduct(){
+export default function AddProduct(props){
 
 
     const [editName, setEditName] = useState();
@@ -15,6 +15,8 @@ export default function AddProduct(){
             annual_occurrence: editAnnual_occurrence
         }).then ((response) => {
             //TODO add to productsList
+            console.log(response.data)
+            props.addToProductList(response.data)
         })
     }
 

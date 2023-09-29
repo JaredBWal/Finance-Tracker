@@ -25,7 +25,7 @@ app.post("/createFinanceProduct", async(req, res) => {
     const product = req.body
     const newProduct = new FinanceProductModel(product)
     await newProduct.save()
-    res.json(product)
+    res.json(newProduct)
 
 })
 
@@ -39,6 +39,7 @@ app.patch("/editFinanceProduct", async(req, res) => {
 
 
 app.delete("/removeFinanceProductWithId/:id", async(req, res) => {
+    console.log(req.params.id);
     const productId = req.params.id
     const result = await FinanceProductModel.findByIdAndRemove(productId, {new:true})
     res.json(result)

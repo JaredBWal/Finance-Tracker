@@ -26,7 +26,7 @@ export default function Product(props){
     }
 
     const getStringOccurrence = (number) => {
-        console.log(number)
+        // console.log(number)
         switch(number){
             case 1:
                 return "Yearly"
@@ -48,9 +48,7 @@ export default function Product(props){
 
      
     const editProduct = () => {
-        // const updateName = name
-        // const updateCost = cost
-        // const updateAnnual_occurrence = annual_occurrence
+        
 
         // if (editName){updateName = editName}
         // if (editCost){updateCost = editCost}
@@ -66,11 +64,25 @@ export default function Product(props){
           }).then((response) =>{
             console.log(response)
 
-            if (editName) { setName(editName)}
-            if (editCost) { setCost(editCost)}
-            if (editAnnual_occurrence) { setAnnualOccurrence(Number(editAnnual_occurrence))}
-            // console.log(editAnnual_occurrence)
+            let updateName = name
+            let updateCost = cost
+            let updateAnnual_occurrence = annual_occurrence
 
+            if (editName) { updateName=editName;  setName(editName)}
+            if (editCost) { updateCost=Number(editCost); setCost(Number(editCost))}
+            if (editAnnual_occurrence) {updateAnnual_occurrence=Number(editAnnual_occurrence); setAnnualOccurrence(Number(editAnnual_occurrence))}
+
+
+            response.data.cost = Number(response.data.cost)
+
+            let updated_product = {
+                _id: props.product._id,
+                name: updateName,
+                cost: updateCost,
+                annual_occurrence:updateAnnual_occurrence
+            }
+
+            props.updateProductLists(updated_product)
         })
       }
 
@@ -84,7 +96,7 @@ export default function Product(props){
     
         
         <div className="w-[40%] mx-auto bg-blue-400 p-6 rounded-md">
-            {console.log(getStringOccurrence(annual_occurrence))}
+            {/* {console.log(getStringOccurrence(annual_occurrence))} */}
             <div className="text-xl">
                 <h1>{name}: {cost}/{getStringOccurrence(annual_occurrence)}</h1>
             </div>
